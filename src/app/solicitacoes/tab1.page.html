@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar color= "dark">
+    <ion-title>
+      Página Inicial
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card class="welcome-card">
+        <ion-slides pager="true" [options]="slideOpts">
+            <ion-slide>
+                <img src="assets/images/IMG01.png" alt="" />
+            </ion-slide>
+            <ion-slide>
+                <img src="assets/images/IMG02.jpg" alt="" />
+            </ion-slide>
+            <ion-slide>
+                <img src="assets/images/IMG03.jpg" alt="" />
+            </ion-slide>
+          </ion-slides>
+      <ion-card-header>
+        <ion-card-subtitle>Bem Vindo!</ion-card-subtitle>
+        <ion-card-title>Olá {{nome_usuario}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Nesta página, será exibido todas as suas solicitações, para que possa ser feito um acompanhamento.</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>Solicitações Feitas
+        </ion-label>
+      </ion-list-header>
+
+      <ion-card>
+          <ion-item>
+            <ion-icon name="pin" slot="start"></ion-icon>
+            <ion-label>Solicitação 1</ion-label>
+            <ion-button fill="outline" slot="end">View</ion-button>
+          </ion-item>
+        
+          <ion-card-content>
+            Canetas: x. 
+            Post-it: y.
+            Resmas: z.
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list-header>
+            <ion-label>Aniversariantes
+            </ion-label>
+          </ion-list-header>
+    
+          <ion-card>
+              <ion-item>
+                <ion-icon name="gift" slot="start"></ion-icon>
+                <ion-label>Quem está fazendo anviersário hoje?</ion-label>
+                <ion-button fill="outline" slot="end">View</ion-button>
+              </ion-item>
+            
+              <ion-card-content>
+                  <ion-item>
+                      <ion-label>
+                          <ion-chip>
+                              <ion-avatar>
+                                <img src="./assets/avatar/avatar.png">
+                              </ion-avatar>
+                              <ion-label>Usuário 1</ion-label>
+                    
+                            </ion-chip>
+                            
+                      </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <ion-chip>
+                                <ion-avatar>
+                                  <img src="./assets/avatar/avatar.png">
+                                </ion-avatar>
+                                <ion-label>Usuário 2</ion-label>
+                      
+                              </ion-chip>
+                              
+                        </ion-label>
+                      </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-list-header>
+                <ion-label>Calendário
+                </ion-label>
+              </ion-list-header>
+        
+              <ion-card>
+                  <ion-item>
+                    <ion-icon name="calendar" slot="start"></ion-icon>
+                    <ion-label>Agenda</ion-label>
+                    <ion-button fill="outline" slot="end">View</ion-button>
+                  </ion-item>
+                
+                  <ion-card-content>
+                      <calendar 
+                      [eventSource]="eventSource" 
+                      [calendarMode]="calendar.mode" 
+                      [currentDate]="calendar.currentDate"
+                      (onEventSelected)="onEventSelected($event)"
+                      (onTitleChanged)="onViewTitleChanged($event)"
+                      (onTimeSelected)="onTimeSelected($event)" 
+                      startHour="6"
+                      endHour="20"
+                      step="30"
+                      startingDayWeek="1">
+                      </calendar>
+                  </ion-card-content>
+                </ion-card>
+
+    </ion-list>
+</ion-content>
